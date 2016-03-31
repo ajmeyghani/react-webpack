@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack -w"
+    "start": "webpack -w --debug --devtool eval --output-pathinfo"
   },
   "author": "Amin Meyghani <meyghania@gmail.com> (http://meyghani.com)",
   "license": "ISC",
