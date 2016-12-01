@@ -2,17 +2,20 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 import axios from 'axios';
 
-
-
 var App = React.createClass({
   signupResult() {
     console.log('signing up ....');
+  },
+  data() {
+    return [
+      {id: 55, name: 'tom cruise'}
+    ]
   },
   render() {
     return (
     <div>
       <Signup onSignup={this.signupResult} />
-      <FilterList />
+      <FilterList data={this.data()}/>
     </div>
     );
   }
@@ -27,7 +30,7 @@ var FilterList = React.createClass({
   },
   componentWillMount() {
     this.setState({
-      filteredProjects: []
+      filteredProjects: this.props.data
     })
   },
    handleChange: function() {
@@ -36,6 +39,7 @@ var FilterList = React.createClass({
     }, function() {
       console.log('State changed. New State', this.state.isActive);
       if(this.state.isActive) {
+        /* if the checkbox is active get the filtered list */
         axios.get('/api/projects/matches').then(resp => {
           this.setState({
             filteredProjects: resp.data
@@ -48,8 +52,9 @@ var FilterList = React.createClass({
           }
         });
       } else {
+        /* otherwise assign it to the default list */
         this.setState({
-          filteredProjects: []
+          filteredProjects: this.props.data
         });
       }
     }.bind(this));
@@ -57,7 +62,7 @@ var FilterList = React.createClass({
   render() {
     return(
       <div>
-        <p>Value is {this.state.isActive ? 'true': 'false'}</p>
+        <p>Value is {this.state.isActive ? ' Showing Matched Projects': 'Showing All Projects'}</p>
         <input type="checkbox" checked={this.state.isActive} onClick={this.handleChange} />
         <ul>
           {this.state.filteredProjects ? this.state.filteredProjects.map((p, i) => <li key={i}>{p.name}</li>) : ''}
