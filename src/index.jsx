@@ -25,7 +25,9 @@ var FilterList = React.createClass({
   getInitialState() {
     return {
       isActive: false,
-      filteredProjects: void 0
+      filteredProjects: void 0,
+      alreadyLoaded: false,
+      loadedData: []
     };
   },
   componentWillMount() {
@@ -40,17 +42,27 @@ var FilterList = React.createClass({
       console.log('State changed. New State', this.state.isActive);
       if(this.state.isActive) {
         /* if the checkbox is active get the filtered list */
-        axios.get('/api/projects/matches').then(resp => {
+        if(this.state.alreadyLoaded) {
+          console.log('loading data from memory');
           this.setState({
-            filteredProjects: resp.data
+            filteredProjects: this.state.loadedData
+          })
+        } else {
+          axios.get('/api/projects/matches').then(resp => {
+            this.setState({
+              filteredProjects: resp.data,
+              loadedData: resp.data,
+              alreadyLoaded: true
+            });
+            console.log(this.state.filteredProjects);
+          })
+          .catch(e => {
+            if(e) {
+              throw e;
+            }
           });
-          console.log(this.state.filteredProjects);
-        })
-        .catch(e => {
-          if(e) {
-            throw e;
-          }
-        });
+        }
+
       } else {
         /* otherwise assign it to the default list */
         this.setState({
