@@ -9,6 +9,7 @@
   "author": "Amin Meyghani <meyghania@gmail.com> (http://meyghani.com)",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.15.3",
     "babel-preset-react": "^6.5.0",
     "react": "^0.14.8",
     "react-dom": "^0.14.8"

@@ -1,5 +1,8 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+import axios from 'axios';
+
+
 
 var App = React.createClass({
   signupResult() {
@@ -9,8 +12,58 @@ var App = React.createClass({
     return (
     <div>
       <Signup onSignup={this.signupResult} />
+      <FilterList />
     </div>
     );
+  }
+});
+
+var FilterList = React.createClass({
+  getInitialState() {
+    return {
+      isActive: false,
+      filteredProjects: void 0
+    };
+  },
+  componentWillMount() {
+    this.setState({
+      filteredProjects: []
+    })
+  },
+   handleChange: function() {
+    this.setState({
+      isActive: !this.state.isActive
+    }, function() {
+      console.log('State changed. New State', this.state.isActive);
+      if(this.state.isActive) {
+        axios.get('/api/projects/matches').then(resp => {
+          this.setState({
+            filteredProjects: resp.data
+          });
+          console.log(this.state.filteredProjects);
+        })
+        .catch(e => {
+          if(e) {
+            throw e;
+          }
+        });
+      } else {
+        this.setState({
+          filteredProjects: []
+        });
+      }
+    }.bind(this));
+  },
+  render() {
+    return(
+      <div>
+        <p>Value is {this.state.isActive ? 'true': 'false'}</p>
+        <input type="checkbox" checked={this.state.isActive} onClick={this.handleChange} />
+        <ul>
+          {this.state.filteredProjects ? this.state.filteredProjects.map((p, i) => <li key={i}>{p.name}</li>) : ''}
+        </ul>
+      </div>
+      );
   }
 });
 
