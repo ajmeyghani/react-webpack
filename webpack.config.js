@@ -1,9 +1,10 @@
 var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var autoprefixer = require('autoprefixer');
 
 module.exports = {
-  entry: './main.jsx',
+  entry: 'main',
   output: {
     filename: 'app.js',
     path: path.resolve('./dist')
@@ -25,7 +26,13 @@ module.exports = {
       //   loader: 'style!css',
       //   exclude: /node_modules/
       // }
-      { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader") }
+      /* https://github.com/postcss/postcss-loader/issues/81 */
+      { test: /\.css$/,
+        loader: ExtractTextPlugin.extract(
+          'style-loader',
+          'css-loader!postcss-loader'
+        )
+       }
     ]
   },
   plugins: [
@@ -36,7 +43,8 @@ module.exports = {
     modulesDirectories: [
     'node_modules',
       path.resolve('./src/components'),
-      path.resolve('./src')
+      path.resolve('./src'),
+      path.resolve('./.')
     ]
   }
 };

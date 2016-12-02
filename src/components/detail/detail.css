@@ -1,3 +1,4 @@
 .m-detail__title {
-  color: blue;
+  color: $primary;
+  background: $secondary;
 }
