@@ -26,7 +26,6 @@ module.exports = {
       //   loader: 'style!css',
       //   exclude: /node_modules/
       // }
-      /* https://github.com/postcss/postcss-loader/issues/81 */
       { test: /\.css$/,
         loader: ExtractTextPlugin.extract(
           'style-loader',
@@ -41,7 +40,7 @@ module.exports = {
   resolve: {
     extensions: ['', '.webpack.js', 'web.js', '.js', '.jsx', '.html'],
     modulesDirectories: [
-    'node_modules',
+     'node_modules',
       path.resolve('./src/components'),
       path.resolve('./src'),
       path.resolve('./.')
