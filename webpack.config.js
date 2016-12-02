@@ -16,6 +16,7 @@ module.exports = {
         exclude: /node_modules/,
         query: {
           presets: ['es2015', 'react'],
+          retainLines: 'true',
           plugins: ['add-module-exports']
         }
       },
