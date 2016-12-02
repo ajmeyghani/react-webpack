@@ -4,9 +4,12 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var autoprefixer = require('autoprefixer');
 
 module.exports = {
-  entry: 'main',
+  entry: {
+    app: 'main',
+    common: 'css/all.css'
+  },
   output: {
-    filename: 'app.js',
+    filename: '[name].js',
     path: path.resolve('./dist')
   },
   module: {
@@ -35,7 +38,7 @@ module.exports = {
     ]
   },
   plugins: [
-      new ExtractTextPlugin('newapp.css')
+    new ExtractTextPlugin('[name].css')
   ],
   resolve: {
     extensions: ['', '.webpack.js', 'web.js', '.js', '.jsx', '.html'],

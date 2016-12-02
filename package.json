@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "./node_modules/.bin/webpack -w --debug --devtool eval --output-pathinfo",
+    "dev": "rm -rf dist && ./node_modules/.bin/webpack -w --debug --devtool eval --output-pathinfo",
     "server": "nodemon server --ignore node_modules --ignore src",
     "bs": "browser-sync start --logLevel 'info' --no-notify  --no-open --proxy='localhost:3000' --files 'dist/*.css, !.DS_Store, !.git/**, !node_modules/**, !bower_components/**'"
   },
