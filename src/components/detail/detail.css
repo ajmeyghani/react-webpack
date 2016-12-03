@@ -1,4 +1,3 @@
 .m-detail__title {
-  color: $primary;
-  background: $secondary;
+  color: inherit;
 }

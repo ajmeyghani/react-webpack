@@ -14,6 +14,9 @@
     "axios": "^0.15.3",
     "babel-preset-react": "^6.5.0",
     "express": "^4.14.0",
+    "imperavi-kube": "^6.0.1",
+    "minireset.css": "^0.0.2",
+    "normalize.css": "^5.0.0",
     "react": "^0.14.8",
     "react-dom": "^0.14.8"
   },
@@ -28,7 +31,10 @@
     "postcss-loader": "^1.1.1",
     "postcss-simple-vars": "^3.0.0",
     "postcss-smart-import": "^0.6.0",
+    "poststylus": "^0.2.3",
     "style-loader": "^0.13.1",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^2.4.0",
     "webpack": "^1.12.14"
   }
 }
