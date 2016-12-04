@@ -1,0 +1,27 @@
+/*
+ * Layout
+ */
+.l-flex {
+  display: flex;
+  align-items: baseline;
+}
+.l-iliac-app {
+}
+.l-loading {
+  padding: 8rem 2rem;
+  font-size: 1rem;
+  text-align: center;
+}
+.l-word-space {
+  padding-right: 0.666667rem; /* 10px */
+}
+.l-content {
+  padding: $padding-small
+}
+.l-half {
+  display: flex;
+}
+
+.l-pb1 {
+  padding-bottom: 1rem;
+}

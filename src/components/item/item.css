@@ -1,4 +1,6 @@
+@import "~css-vars";
 .m-item__title {
   text-decoration: underline;
+  color: $primary;
 }
 

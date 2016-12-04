@@ -1,0 +1,35 @@
+/*
+ * Base Styles
+ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li,
+div,
+pre,
+b,i
+span {
+  margin: 0;
+  padding: 0;
+}
+section, article, div, nav {
+  box-sizing: border-box;
+}
+html {
+  font-size: 15px; /* 1rem = 15px */
+}
+body {
+  background: #fff;
+  font-family: 'open_sansregular', sans-serif;
+  font-size: 0.866667rem; /* 13px */
+  overflow-x: hidden;
+}
+a {
+  font-size: 0.866667rem; /* 13px */
+  color: #53B6E0;
+}

@@ -17,5 +17,3 @@ app.all(/^\/(?!api).*/, function(req, res){
 
 
 app.listen(3000, e => console.log('server running'));
-
-

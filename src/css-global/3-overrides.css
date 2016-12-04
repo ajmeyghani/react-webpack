@@ -1,0 +1,15 @@
+/*
+ * Overrides
+ */
+.btn {
+  border-radius: 1px;
+}
+
+.swal2-confirm {
+  padding: 8px 2.5rem;
+  background: transparent;
+  border: 1px solid #21ace3;
+  background: #21ace3;
+  color: #fff;
+  text-transform: uppercase;;
+}

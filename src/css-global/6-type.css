@@ -1,0 +1,18 @@
+/* Typography */
+.t-title1, .t-title2, .t-title3 {
+  font-family: 'open_sanssemibold', sans-serif;
+  color: #575658;
+  margin-bottom: $space-small;
+}
+
+.t-title1 {
+  font-size: 1.6rem;
+}
+
+.t-title2 {
+  font-size: 1rem;
+}
+
+.t-accent {
+  font-family: 'open_sanssemibold', sans-serif;
+}

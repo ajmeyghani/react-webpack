@@ -6,4 +6,3 @@ export default React.createClass({
     return detailTpl;
   }
 });
-//
