@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "rm -rf dist && ./node_modules/.bin/webpack -w --debug --output-pathinfo",
     "server": "nodemon server --ignore node_modules --ignore src --ignore dist",
-    "bs": "browser-sync start --logLevel 'info' --no-notify  --no-open --proxy='localhost:3000' --reload-delay  500 --files 'dist/*.css, !.DS_Store, !.git/**, !node_modules/**, !bower_components/**'"
+    "bs": "browser-sync start --logLevel 'info' --no-notify  --no-open --proxy='localhost:3000' --reload-delay  100 --files 'dist/*.css, !.DS_Store, !.git/**, !node_modules/**, !bower_components/**'"
   },
   "author": "Amin Meyghani <meyghania@gmail.com> (http://meyghani.com)",
   "license": "ISC",
