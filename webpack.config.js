@@ -1,21 +1,19 @@
 var path = require('path');
 var webpack = require('webpack');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   entry: {
-    app: 'main',
-    common: 'css-global/all',
+    app: 'main'
   },
   output: {
     filename: '[name].js',
     path: path.resolve('./dist')
   },
-  devtool: "source-map",
+  devtool: "eval",
   module: {
     loaders: [
       {
-        test: /\.jsx?$|\.tpl\.html$/,
+        test: /\.jsx?$|\.jsx\.html$/,
         loader: 'babel',
         exclude: /node_modules/,
         query: {
@@ -24,22 +22,10 @@ module.exports = {
           plugins: ['add-module-exports']
         }
       },
-      { test: /\.css$|\.scss$/,
-        loader: ExtractTextPlugin.extract(
-          'style-loader',
-          'css?sourceMap!postcss?sourceMap!sass?sourceMap'
-        )
-       },
     ]
   },
-  plugins: [
-    new ExtractTextPlugin('[name].css')
-  ],
   resolve: {
-    alias: {
-      'css-vars': 'css-global/0-variables'
-    },
-    extensions: ['', '.webpack.js', 'web.js', '.js', '.jsx', '.html', '.css'],
+    extensions: ['', '.webpack.js', 'web.js', '.js', '.jsx', '.html'],
     modulesDirectories: [
      'node_modules',
       path.resolve('./src/components'),

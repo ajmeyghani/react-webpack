@@ -4,11 +4,10 @@ This is probably the simplest React-webpack boilerplate that you can find.
 
 ## Usage
 
-- Install nodemon, browser-sync, yarb: `npm i browser-sync nodemon yarn -g`
-- Install the dependencies: `yarn install`
+- Install `yarn` and `nodemon` globally: `npm i yarn nodemon -g`
+- Install the dependencies in the folder.: `yarn install`
 - Start Webpack to watch your project: `npm run dev`
-- In another tab, run `npm run server`
-- Watch the CSS and hot reload with browsersync `npm run bs`
+- In another tab, run `npm run server` and go to `http://localhost:3000`
 
 ## License
 
