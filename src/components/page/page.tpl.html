@@ -7,6 +7,115 @@ const tpl =
   <p className="t-title1">Page title</p>
   <Item />
   <Detail />
+  <table className="striped">
+      <thead>
+          <tr>
+              <th>Column 1</th>
+              <th>Column 2</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>item 1</td>
+              <td>item 2</td>
+          </tr>
+      </tbody>
+      <tfoot>
+          <tr>
+              <td>item 1.1</td>
+              <td>item 1.2</td>
+          </tr>
+      </tfoot>
+  </table>
+
+
+  <h2>form with more columsn</h2>
+
+  <form className="form">
+      <div className="row">
+          <div className="col col-6">
+              <div className="form-item">
+                  <label>City <span className="req">*</span></label>
+                  <input type="text" />
+              </div>
+          </div>
+          <div className="col col-6">
+              <div className="form-item">
+                  <label>City <span className="desc">information about the city</span></label>
+                  <input type="text" />
+                  <div className="desc">some more info about details</div>
+              </div>
+          </div>
+      </div>
+  </form>
+
+  <h2>form with columns</h2>
+
+  <form className="form">
+      <div className="row">
+          <div className="col col-6">
+              <div className="form-item">
+                  <input type="text" placeholder="Email" />
+              </div>
+          </div>
+          <div className="col col-6">
+              <div className="form-item">
+                  <input type="text" disabled="true" value="Stop changing stuff!" />
+              </div>
+          </div>
+      </div>
+  </form>
+
+  <h2>Form input</h2>
+
+  <form className="form">
+      <div className="form-item">
+          <label>City</label>
+          <input type="text" />
+          <div className="desc">This information helps us deliver orders on time.</div>
+      </div>
+  </form>
+
+  <h2>Form Simple</h2>
+
+  <form method="post" action="" className="form">
+
+      <div className="form-item">
+          <label>Email</label>
+          <input type="email" name="email" className="width-50" />
+      </div>
+
+      <div className="form-item">
+          <label>Password</label>
+          <input type="password" name="password" />
+      </div>
+
+      <div className="form-item">
+          <select className="select">
+              <option value="">Choose me</option>
+          </select>
+      </div>
+
+      <div className="form-item checkboxes">
+          <label><input type="checkbox" /> Check me</label>
+          <label><input type="radio" /> Radio me</label>
+      </div>
+
+      <div className="form-item">
+          <textarea rows="6"></textarea>
+      </div>
+
+      <label className="form-item checkbox">
+          <input type="checkbox" /> Check me
+      </label>
+
+      <div className="form-item">
+          <button className="button primary">Log in</button>
+          <button className="button">Cancel</button>
+      </div>
+
+  </form>
+
 </div>
 );
 export default tpl;

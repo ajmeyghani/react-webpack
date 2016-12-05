@@ -2,6 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
+
 module.exports = {
   entry: {
     app: 'main',
@@ -24,7 +25,7 @@ module.exports = {
           plugins: ['add-module-exports']
         }
       },
-      { test: /\.css$|\.scss$/,
+      { test: /\.css$|\.scss$|\.sass$/,
         loader: ExtractTextPlugin.extract(
           'style-loader',
           'css?sourceMap!postcss?sourceMap!sass?sourceMap'
@@ -37,7 +38,8 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      'css-vars': 'css-global/0-variables'
+      'css-vars': 'css-global/0-variables',
+      'kube': 'imperavi-kube/src/_scss'
     },
     extensions: ['', '.webpack.js', 'web.js', '.js', '.jsx', '.html', '.css'],
     modulesDirectories: [
