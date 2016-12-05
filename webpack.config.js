@@ -1,7 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
-
+var isProd = process.env.NODE_ENV === 'production';
 
 module.exports = {
   entry: {
@@ -9,8 +9,8 @@ module.exports = {
     common: 'css-global/all',
   },
   output: {
-    filename: '[name].js',
-    path: path.resolve('./dist')
+    filename: isProd ? '[name].min.js' : '[name].js',
+    path: path.resolve(isProd ? './build': './dist')
   },
   devtool: "cheap-module-source-map",
   module: {
@@ -34,7 +34,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin('[name].css')
+    new ExtractTextPlugin(isProd ? '[name].min.css' : '[name].css')
   ],
   resolve: {
     alias: {

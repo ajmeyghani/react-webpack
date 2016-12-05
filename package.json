@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "rm -rf dist && ./node_modules/.bin/webpack -w --debug --output-pathinfo",
+    "build": "rm -rf build && NODE_ENV=production ./node_modules/.bin/webpack -p",
     "server": "nodemon server --ignore node_modules --ignore src --ignore dist",
     "bs": "browser-sync start --logLevel 'info' --no-notify  --no-open --proxy='localhost:3000' --reload-delay  100 --files 'dist/*.css, !.DS_Store, !.git/**, !node_modules/**, !bower_components/**'"
   },
