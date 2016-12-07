@@ -1,0 +1,13 @@
+import React from 'react';
+export default self => {
+  const tpl =
+  (
+    <div>
+      <p>hello:</p>
+      <div>
+        {self.props.children}
+      </div>
+    </div>
+  );
+  return tpl;
+};
