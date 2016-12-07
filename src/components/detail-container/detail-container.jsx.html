@@ -1,11 +1,16 @@
 import React from 'react';
 export default self => {
+console.log(self.props.item);
+const children = self.props.children;
   const tpl =
   (
     <div>
       <p>hello:</p>
       <div>
-        {self.props.children}
+        {children ? React.Children.map(children, x => x): 'use default values'}
+      </div>
+      <div>
+        name is: {self.state.name}
       </div>
     </div>
   );

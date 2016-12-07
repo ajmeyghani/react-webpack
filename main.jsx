@@ -2,6 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Page from 'page/page';
 import DetailContainer from 'detail-container/detail-container';
+import ItemHeader from 'item-header';
+import ItemBody from 'item-body';
+
+/* to provide the implementation just override by providing your own css html */
 
 const someItem = {
   id: 1, name: 'tom'
@@ -13,8 +17,8 @@ const App = React.createClass({
       <div>
         <Page />
         <DetailContainer item={someItem}>
-          <p>This is the first child</p>
-          <p>This is the second one</p>
+          <h1>this is the header</h1>
+          <ItemBody key="item-body" />
         </DetailContainer>
       </div>
       );
