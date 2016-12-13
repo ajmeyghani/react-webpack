@@ -1,9 +1,9 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
-import MyButton from 'my-button/my-button';
-import List from 'list/list';
 
-import DetailContainer from 'detail-container/detail-container';
+import myButtonFn from 'my-button/my-button-fn';
+import List from 'list/list';
+import Detail from 'detail/detail';
+
 const someItem = {
   id: 1, name: 'tom'
 };
@@ -12,20 +12,23 @@ const dataItems = [
   {id: 1, name: 'item1'},
 ];
 
-const App = React.createClass({
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
       <div>
-        <List items={dataItems} customButton={MyButton} />
+        <List items={dataItems} customButton={myButtonFn} />
         <List items={[{id: 0, name: 'cool'}]} />
         <p>-------------------------</p>
-        <DetailContainer item={someItem}>
+        <Detail item={someItem}>
           <p>This is the first child</p>
           <p>This is the second one</p>
-        </DetailContainer>
+        </Detail>
       </div>
       );
     }
-});
+}
 
 ReactDOM.render(<App />, document.getElementById('app'));

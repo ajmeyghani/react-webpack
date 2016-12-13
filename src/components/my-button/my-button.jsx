@@ -1,5 +1,4 @@
-import React from 'react';
-class MyButton extends React.Component {
+export default class MyButton extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -8,15 +7,11 @@ class MyButton extends React.Component {
   }
   render() {
     const children = this.props.children;
+    const theItem = this.props.item;
     return (
       <div>
-        <button onClick={() => {this.logMe(this.props.item)}}>{children ? children : 'ok'}</button>
+        <button onClick={() => {this.logMe(theItem)}}>{children ? children : 'ok'}</button>
       </div>
       );
   }
-}
-export default (item) => {
-  return (
-      <MyButton item={item}>Add {item.name} +</MyButton>
-    );
 }

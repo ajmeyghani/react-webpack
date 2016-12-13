@@ -32,5 +32,10 @@ module.exports = {
       path.resolve('./src'),
       path.resolve('./.')
     ]
-  }
+  },
+  plugins: [
+  new webpack.ProvidePlugin({
+    'React': 'react'
+  })
+  ]
 };
