@@ -1,0 +1,17 @@
+import React from 'react';
+export default self => {
+const customButton = self.props.customButton;
+  return (
+  <div>
+    <ul>
+      { self.props.items.map(item =>
+        <li key={item.id}>{item.name}
+        { customButton ? customButton(item) : <div><button>Default</button></div> }
+        </li>
+      )}
+    </ul>
+  </div>
+  );
+};
+
+
