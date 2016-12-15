@@ -1,5 +1,8 @@
 var path = require('path');
 var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 
 module.exports = {
   entry: {
@@ -12,6 +15,7 @@ module.exports = {
   devtool: "eval",
   module: {
     loaders: [
+      { test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css') },
       {
         test: /\.jsx?$|\.jsx\.html$/,
         loader: 'babel',
@@ -34,8 +38,15 @@ module.exports = {
     ]
   },
   plugins: [
-  new webpack.ProvidePlugin({
-    'React': 'react'
-  })
+    new webpack.ProvidePlugin({
+      'React': 'react'
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Generic React',
+      inject: 'body',
+      hash: true,
+      template: 'my-index.ejs',
+    }),
+    new ExtractTextPlugin("[name].css")
   ]
 };

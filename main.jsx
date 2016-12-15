@@ -1,3 +1,4 @@
+require('app.css');
 import ReactDOM from 'react-dom';
 
 import myButtonFn from 'my-button/my-button-fn';
